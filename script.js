@@ -11,7 +11,7 @@ const OPTIONS = {
 };
 
 const fetchIpInfo = ip => {
-  return fetch(`https://ip-geolocation-find-ip-location-and-ip-info.p.rapidapi.com/backend/${ip}`, OPTIONS)
+  return fetch(`https://ip-geolocation-find-ip-location-and-ip-info.p.rapidapi.com/backend/ipinfo/?${ip}`, OPTIONS)
   .then(res => res.json())
   .then(data => {
     console.log(data)
@@ -41,8 +41,8 @@ $form.addEventListener("submit", async (event) => {
     $results.innerHTML = JSON.stringify(ipInfo, null, 2)
   }
 
-  $submit.setAttribute('disabled')
-  $submit.setAttribute('aria-busy')
+  $submit.removeAttribute('disabled')
+  $submit.removeAttribute('aria-busy')
 })
 
 
