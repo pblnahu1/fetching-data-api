@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link type="text/css" rel="stylesheet" href="style.css"/>
-  </head>
-  <body>
-    <!-- PicoCSS -->
-<link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
 
-<h1 style="text-align:center;margin-top:20px;">Esta es mi App con Fetch</h1>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fetching Data API</title>
+  <!-- PicoCSS -->
+  <link rel="stylesheet" href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css">
+</head>
 
-<main class="container">
-  <form id="form">
-    <label>
-    <input required id="input" type="text" placeholder="Introduce aquí la IP">
-    <small>
-      Por ejemplo: 54.85.132.205
-    </small>
-    </label>
-    <button type="submit" id="submit">
-      Buscar informacion de esta IP
-    </button>
-  </form>
+<body>
+  <h1 style="text-align:center;margin-top:20px;">Esta es mi App con Fetch</h1>
 
-  <div>
-    <!-- Texto preformateado como código -->
-    <pre id="results"></pre>
-  </div>
-</main>
-    <script type="module" src="script.js"></script>
-  </body>
+  <main class="container">
+    <form id="form">
+      <label>
+        <input required id="input" type="text" placeholder="Introduce aquí la IP">
+        <small>
+          Por ejemplo: 54.85.132.205
+        </small>
+      </label>
+      <button type="submit" id="submit">
+        Buscar informacion de esta IP
+      </button>
+    </form>
+
+    <div>
+      <!-- Texto preformateado como código -->
+      <pre id="results"></pre>
+    </div>
+  </main>
+
+  <script type="module" src="script.js"></script>
+</body>
+
 </html>
