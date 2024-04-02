@@ -11,12 +11,11 @@ const OPTIONS = {
 };
 
 const fetchIpInfo = ip => {
-  return fetch(`https://ip-geolocation-find-ip-location-and-ip-info.p.rapidapi.com/${ip}`, OPTIONS)
-  .then(res => {
-    if (!res.ok) {
-      throw new Error('Network response was not ok')
-    }
-    return res.json()
+  return fetch(`https://ip-geolocation-find-ip-location-and-ip-info.p.rapidapi.com/backend/${ip}`, OPTIONS)
+  .then(res => res.json())
+  .then(data => {
+    console.log(data)
+    return data
   })
   .catch(err => console.error(err))
 }
@@ -35,19 +34,15 @@ $form.addEventListener("submit", async (event) => {
   $submit.setAttribute('disabled', '')
   $submit.setAttribute('aria-busy', 'true')
 
-  try {
-    const ipInfo = await fetchIpInfo(value)
-    console.log(ipInfo)
+  const ipInfo = await fetchIpInfo(value)
+  console.log(ipInfo)
 
-    if(ipInfo) {
-      $results.innerHTML = JSON.stringify(ipInfo, null, 2)
-    }
-  } catch (error) {
-    console.error(error)
-  } finally {
-    $submit.setAttribute('disabled')
-    $submit.setAttribute('aria-busy')
+  if(ipInfo) {
+    $results.innerHTML = JSON.stringify(ipInfo, null, 2)
   }
+
+  $submit.setAttribute('disabled')
+  $submit.setAttribute('aria-busy')
 })
 
 
